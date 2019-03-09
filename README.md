@@ -1,8 +1,6 @@
 # datetime-periods
 [![Build Status](https://travis-ci.org/KillerCodeMonkey/datetime-periods.svg?branch=master)](https://travis-ci.org/KillerCodeMonkey/datetime-periods) [![Codacy Badge](https://api.codacy.com/project/badge/Grade/5482e078bde544daba23ffb14ab11699)](https://www.codacy.com/app/KillerCodeMonkey/datetime-periods?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=KillerCodeMonkey/datetime-periods&amp;utm_campaign=Badge_Grade)[![codecov](https://codecov.io/gh/KillerCodeMonkey/datetime-periods/branch/master/graph/badge.svg)](https://codecov.io/gh/KillerCodeMonkey/datetime-periods)
 
-
-
 Get a valid list of years down to seconds for a date and min and max date.
 
 You ever wanted to create a simple date time picker or wanted to show the user available dates or only the days?
