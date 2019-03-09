@@ -8,8 +8,8 @@ It is a zero dependecy lib for browser and node environments.
 
 ## Installation
 
-- `npm install datetime-periods`
-- `yarn add datetime-periods`
+  - `npm install datetime-periods`
+  - `yarn add datetime-periods`
 
 ## Methods
 
@@ -17,11 +17,11 @@ It is a zero dependecy lib for browser and node environments.
 
 Transforms a date in a object respresentation:
 
-```
-// DateTimeObject
+```typescript
+// DateTimeObject interface
 {
   year: number
-  month: number (1-12)
+  month: number // (1-12)
   day: number
   hour: number
   minute: number
@@ -40,7 +40,7 @@ This method contains the main functionality of the lib. The other methods are on
 
 It generates a data structure of valid years, months, days, hours, minutes and seconds for a given date and an optional min and max date. In addition to that it returns all the calculation dates as object representation.
 
-```
+```typescript
 {
   value: DateTimeObject // validated value as object
   originalValue: DateTimeObject // original value as object
@@ -58,15 +58,15 @@ It generates a data structure of valid years, months, days, hours, minutes and s
 }
 ```
 
-**Default min and max**
+#### Default min and max
 
-- min: `value - 100 years`
-- max: `value + 100 years`
+  - min: `value - 100 years`
+  - max: `value + 100 years`
 
-**Special cases**
+#### Special cases
 
 Leading to a `console.warn`!
 
-- `min > max`: min and max are fall back to the default
-- `value < min`: value is set to min, sets `originalValueChanged` to `true`
-- `value > max`: value is set to max, sets `originalValueChanged` to `true`
+  - `min > max`: min and max are fall back to the default
+  - `value < min`: value is set to min, sets `originalValueChanged` to `true`
+  - `value > max`: value is set to max, sets `originalValueChanged` to `true`
