@@ -18,7 +18,7 @@ export interface GetValidDatesResult {
   originalValueChanged: boolean
   max: DateTimeObject
   min: DateTimeObject
-  validDateTimes: {
+  periods: {
     days: number[]
     hours: number[]
     minutes: number[]
@@ -40,7 +40,7 @@ export function getDateTimeObject(date: Date): DateTimeObject {
   }
 }
 
-export function getValidDates(value: Date = new Date(), min?: Date, max?: Date): GetValidDatesResult {
+export function getDateTimePeriods(value: Date = new Date(), min?: Date, max?: Date): GetValidDatesResult {
   value = new Date(value.setMilliseconds(0))
   const valueOriginal = new Date(value)
   let valueChanged = false
@@ -135,7 +135,7 @@ export function getValidDates(value: Date = new Date(), min?: Date, max?: Date):
     originalValueChanged: valueChanged,
     max: maxDateObject,
     min: minDateObject,
-    validDateTimes: {
+    periods: {
       days,
       hours,
       minutes,

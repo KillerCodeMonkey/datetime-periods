@@ -1,4 +1,4 @@
-import { getDateTimeObject, getDaysInMonth, getValidDates } from "../src"
+import { getDateTimeObject, getDaysInMonth, getDateTimePeriods } from "../src"
 
 describe('index.ts', () => {
   describe('#getDaysInMonth()', () => {
@@ -54,10 +54,10 @@ describe('index.ts', () => {
     })
   })
 
-  describe('#getValidDates()', () => {
+  describe('#getDateTimePeriods()', () => {
     it('returns correct current Date and valid dates and times for default max and min', () => {
       const currentDate = new Date(2019, 11, 30, 12, 30, 59, 0)
-      expect(getValidDates(currentDate)).toEqual({
+      expect(getDateTimePeriods(currentDate)).toEqual({
         value: {
           year: 2019,
           month: 12,
@@ -95,7 +95,7 @@ describe('index.ts', () => {
           second: 59,
           tzOffset: currentDate.getTimezoneOffset()
         },
-        validDateTimes: {
+        periods: {
           years: Array.from({ length: 201 }, (_v, i: number) => 1919 + i),
           months: Array.from({ length: 12 }, (_v, i: number) => i + 1),
           days: Array.from({ length: 31 }, (_v, i: number) => i + 1),
@@ -108,7 +108,7 @@ describe('index.ts', () => {
 
     it('returns correct dates and times for value = max', () => {
       const currentDate = new Date(2019, 4, 18, 12, 30, 45, 0)
-      expect(getValidDates(currentDate, undefined, currentDate)).toEqual({
+      expect(getDateTimePeriods(currentDate, undefined, currentDate)).toEqual({
         value: {
           year: 2019,
           month: 5,
@@ -146,7 +146,7 @@ describe('index.ts', () => {
           second: 45,
           tzOffset: -60
         },
-        validDateTimes: {
+        periods: {
           years: Array.from({ length: 101 }, (_v, i: number) => 1919 + i),
           months: Array.from({ length: 5 }, (_v, i: number) => i + 1),
           days: Array.from({ length: 18 }, (_v, i: number) => i + 1),
@@ -159,7 +159,7 @@ describe('index.ts', () => {
 
     it('returns correct dates and times for value = min', () => {
       const currentDate = new Date(2019, 4, 18, 12, 30, 45, 0)
-      expect(getValidDates(currentDate, currentDate, undefined)).toEqual({
+      expect(getDateTimePeriods(currentDate, currentDate, undefined)).toEqual({
         value: {
           year: 2019,
           month: 5,
@@ -197,7 +197,7 @@ describe('index.ts', () => {
           second: 45,
           tzOffset: currentDate.getTimezoneOffset()
         },
-        validDateTimes: {
+        periods: {
           years: Array.from({ length: 101 }, (_v, i: number) => 2019 + i),
           months: Array.from({ length: 8 }, (_v, i: number) => i + 5),
           days: Array.from({ length: 14 }, (_v, i: number) => i + 18),
@@ -212,7 +212,7 @@ describe('index.ts', () => {
       const currentDate = new Date(2019, 4, 18, 12, 30, 45, 0)
       const minDate = new Date(2019, 4, 18, 11, 30, 45, 0)
       const maxDate = new Date(2019, 4, 18, 14, 30, 45, 0)
-      expect(getValidDates(currentDate, minDate, maxDate)).toEqual({
+      expect(getDateTimePeriods(currentDate, minDate, maxDate)).toEqual({
         value: {
           year: 2019,
           month: 5,
@@ -250,7 +250,7 @@ describe('index.ts', () => {
           second: 45,
           tzOffset: minDate.getTimezoneOffset()
         },
-        validDateTimes: {
+        periods: {
           years: [2019],
           months: [5],
           days: [18],
@@ -265,7 +265,7 @@ describe('index.ts', () => {
       const currentDate = new Date(2019, 11, 30, 12, 30, 59, 0)
       const minDate = new Date(new Date(currentDate).setFullYear(2018))
       const maxDate = new Date(new Date(currentDate).setFullYear(2017))
-      expect(getValidDates(currentDate, minDate, maxDate)).toEqual({
+      expect(getDateTimePeriods(currentDate, minDate, maxDate)).toEqual({
         value: {
           year: 2019,
           month: 12,
@@ -303,7 +303,7 @@ describe('index.ts', () => {
           second: 59,
           tzOffset: minDate.getTimezoneOffset()
         },
-        validDateTimes: {
+        periods: {
           years: Array.from({ length: 201 }, (_v, i: number) => 1919 + i),
           months: Array.from({ length: 12 }, (_v, i: number) => i + 1),
           days: Array.from({ length: 31 }, (_v, i: number) => i + 1),
@@ -318,7 +318,7 @@ describe('index.ts', () => {
       const currentDate = new Date(2019, 11, 30, 12, 30, 59, 0)
       const minDate = new Date(new Date(currentDate).setFullYear(2020))
       const maxDate = new Date(new Date(currentDate).setFullYear(2021))
-      expect(getValidDates(currentDate, minDate, maxDate)).toEqual({
+      expect(getDateTimePeriods(currentDate, minDate, maxDate)).toEqual({
         value: {
           year: 2020,
           month: 12,
@@ -356,7 +356,7 @@ describe('index.ts', () => {
           second: 59,
           tzOffset: minDate.getTimezoneOffset()
         },
-        validDateTimes: {
+        periods: {
           years: [2020, 2021],
           months: [12],
           days: [30, 31],
@@ -371,7 +371,7 @@ describe('index.ts', () => {
       const currentDate = new Date(2020, 11, 30, 12, 30, 59, 0)
       const minDate = new Date(new Date(currentDate).setFullYear(2018))
       const maxDate = new Date(new Date(currentDate).setFullYear(2019))
-      expect(getValidDates(currentDate, minDate, maxDate)).toEqual({
+      expect(getDateTimePeriods(currentDate, minDate, maxDate)).toEqual({
         value: {
           year: 2019,
           month: 12,
@@ -409,7 +409,7 @@ describe('index.ts', () => {
           second: 59,
           tzOffset: minDate.getTimezoneOffset()
         },
-        validDateTimes: {
+        periods: {
           years: [2018, 2019],
           months: Array.from({ length: 12 }, (_v, i: number) => i + 1),
           days: Array.from({ length: 30 }, (_v, i: number) => i + 1),
