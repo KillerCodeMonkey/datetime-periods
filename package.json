@@ -24,6 +24,9 @@
     "generate",
     "periods"
   ],
+  "engines": {
+    "node": ">= 8"
+  },
   "main": "lib/datetime-periods.js",
   "umd:main": "lib/datetime-periods.umd.js",
   "module": "lib/datetime-periods.mjs",

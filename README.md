@@ -1,4 +1,4 @@
-# datetime-periods
+# datetime-periods [![Build Status](https://travis-ci.org/KillerCodeMonkey/datetime-periods.svg?branch=master)](https://travis-ci.org/KillerCodeMonkey/datetime-periods)
 
 Get a valid list of years down to seconds for a date and min and max date.
 
