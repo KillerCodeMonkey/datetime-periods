@@ -144,7 +144,7 @@ describe('index.ts', () => {
           hour: 12,
           minute: 30,
           second: 45,
-          tzOffset: -60
+          tzOffset: new Date(1919, 4, 18, 12, 30, 45, 0).getTimezoneOffset()
         },
         periods: {
           years: Array.from({ length: 101 }, (_v, i: number) => 1919 + i),
