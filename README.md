@@ -1,4 +1,7 @@
-# datetime-periods [![Build Status](https://travis-ci.org/KillerCodeMonkey/datetime-periods.svg?branch=master)](https://travis-ci.org/KillerCodeMonkey/datetime-periods) [![Codacy Badge](https://api.codacy.com/project/badge/Grade/5482e078bde544daba23ffb14ab11699)](https://www.codacy.com/app/KillerCodeMonkey/datetime-periods?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=KillerCodeMonkey/datetime-periods&amp;utm_campaign=Badge_Grade)
+# datetime-periods
+[![Build Status](https://travis-ci.org/KillerCodeMonkey/datetime-periods.svg?branch=master)](https://travis-ci.org/KillerCodeMonkey/datetime-periods) [![Codacy Badge](https://api.codacy.com/project/badge/Grade/5482e078bde544daba23ffb14ab11699)](https://www.codacy.com/app/KillerCodeMonkey/datetime-periods?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=KillerCodeMonkey/datetime-periods&amp;utm_campaign=Badge_Grade)[![codecov](https://codecov.io/gh/KillerCodeMonkey/datetime-periods/branch/master/graph/badge.svg)](https://codecov.io/gh/KillerCodeMonkey/datetime-periods)
+
+
 
 Get a valid list of years down to seconds for a date and min and max date.
 
@@ -8,8 +11,8 @@ It is a zero dependecy lib for browser and node environments.
 
 ## Installation
 
-- `npm install datetime-periods`
-- `yarn add datetime-periods`
+-   `npm install datetime-periods`
+-   `yarn add datetime-periods`
 
 ## Methods
 
@@ -60,13 +63,13 @@ It generates a data structure of valid years, months, days, hours, minutes and s
 
 #### Default min and max
 
-- min: `value - 100 years`
-- max: `value + 100 years`
+-   min: `value - 100 years`
+-   max: `value + 100 years`
 
 #### Special cases
 
 Leading to a `console.warn`!
 
-- `min > max`: min and max are fall back to the default
-- `value < min`: value is set to min, sets `originalValueChanged` to `true`
-- `value > max`: value is set to max, sets `originalValueChanged` to `true`
+-   `min > max`: min and max are fall back to the default
+-   `value < min`: value is set to min, sets `originalValueChanged` to `true`
+-   `value > max`: value is set to max, sets `originalValueChanged` to `true`
