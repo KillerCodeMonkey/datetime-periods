@@ -1,7 +1,7 @@
 module.exports = {
-  "roots": [
-    "<rootDir>/src",
-    "<rootDir>",
+  "testPathIgnorePatterns": [
+    "/node_modules/",
+    "/lib/"
   ],
   "transform": {
     "^.+\\.ts$": "ts-jest"

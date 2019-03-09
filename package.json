@@ -1,28 +1,42 @@
 {
-  "name": "valid-datetimes",
+  "name": "datetime-periods",
   "version": "1.0.0",
-  "description": "Get valid years down to seconds for a date and optional min and max date",
+  "description": "Generates a valid list of years down to seconds for a date and min and max date",
   "scripts": {
-    "test": "jest --coverage",
+    "test": "jest --coverage && npm run lint",
+    "lint": "eslint ./src/index.ts",
     "build": "rm -rf ./lib && microbundle --ts -i ./src/index.ts -o ./lib",
     "dev": "rm -rf ./dev-build && microbundle watch --ts -i ./src/index.ts -o ./dev-build"
   },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/KillerCodeMonkey/datetime-periods.git"
+  },
+  "bugs": {
+    "url": "https://github.com/KillerCodeMonkey/datetime-periods/issues"
+  },
+  "homepage": "https://github.com/KillerCodeMonkey/datetime-periods",
   "keywords": [
     "dates",
     "datetime",
     "valid",
-    "generate"
+    "generate",
+    "periods"
   ],
-  "main": "lib/valid-datetimes.js",
-  "umd:main": "lib/valid-datetimes.umd.js",
-  "module": "lib/valid-datetimes.mjs",
+  "main": "lib/datetime-periods.js",
+  "umd:main": "lib/datetime-periods.umd.js",
+  "module": "lib/datetime-periods.mjs",
   "source": "src/index.ts",
   "author": "Bengt Weiße",
-  "license": "MIT",
   "devDependencies": {
     "@types/jest": "^24.0.11",
+    "@typescript-eslint/eslint-plugin": "^1.4.2",
+    "@typescript-eslint/parser": "^1.4.2",
+    "eslint": "^5.15.1",
     "jest": "^24.3.1",
     "microbundle": "^0.11.0",
-    "ts-jest": "^24.0.0"
+    "ts-jest": "^24.0.0",
+    "typescript": "^3.3.3333"
   }
 }

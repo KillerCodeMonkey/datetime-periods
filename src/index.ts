@@ -19,12 +19,12 @@ export interface GetValidDatesResult {
   max: DateTimeObject
   min: DateTimeObject
   validDateTimes: {
-    days,
-    hours,
-    minutes,
-    months,
-    seconds,
-    years
+    days: number[]
+    hours: number[]
+    minutes: number[]
+    months: number[]
+    seconds: number[]
+    years: number[]
   }
 }
 
