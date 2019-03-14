@@ -1,0 +1,29 @@
+<html>
+  <head>
+    <script src="../lib/datetime-periods.umd.js"></script>
+    <script>
+      // functions are stored globally on the window object
+      console.log('window.datetimePeriods:', window.datetimePeriods)
+
+      // example of getDateTimeObject
+      const dateTimeObject = datetimePeriods.getDateTimeObject(new Date())
+      console.log('Current datetime as plain object (getDateTimeObject):', dateTimeObject)
+
+      // example of daysInMonth
+      const daysOfFebruary2019 = datetimePeriods.getDaysInMonth(2, 2019)
+      console.log('Days of february 2019 (getDaysInMonth):', daysOfFebruary2019)
+
+      // example of daysInMonth
+      const value = new Date()
+      const min = new Date()
+      min.setFullYear(value.getFullYear() - 5)
+      const max = new Date(value.getFullYear() + 5)
+      max.setFullYear(value.getFullYear() + 5)
+      const result = datetimePeriods.getDateTimePeriods(value, min, max)
+      console.log('Periods and date objects (getDateTimePeriods):', result)
+    </script>
+  </head>
+  <body>
+    Open development tools to see the example calls and results :)
+  </body>
+</html>

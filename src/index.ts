@@ -1,3 +1,10 @@
+/**
+   * Returns the days count in a month.
+   *
+   * @param month - The month number (1-12)
+   * @param year - The full year number
+   * @returns The days in a month as number
+   */
 export function getDaysInMonth(month: number, year: number): number {
   return new Date(new Date(`${month < 12 ? year : year + 1}-${month < 12 ? month + 1 : 1}-1`).setDate(0)).getDate()
 }
@@ -28,6 +35,12 @@ export interface GetValidDatesResult {
   }
 }
 
+/**
+   * Returns a date object based on a JS date.
+   *
+   * @param date - A javascript date
+   * @returns The date as a plain old javascript object representation
+   */
 export function getDateTimeObject(date: Date): DateTimeObject {
   return {
     year: date.getFullYear(),
@@ -40,6 +53,14 @@ export function getDateTimeObject(date: Date): DateTimeObject {
   }
 }
 
+/**
+   * Returns a valid list of years down to seconds for a date and min and max date.
+   *
+   * @param value - A javascript date
+   * @param min - The optional min date
+   * @param max - The optional max date
+   * @returns The date params as object representation and the valid periods
+   */
 export function getDateTimePeriods(value: Date = new Date(), min?: Date, max?: Date): GetValidDatesResult {
   value = new Date(value.setMilliseconds(0))
   const valueOriginal = new Date(value)
