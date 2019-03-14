@@ -112,13 +112,13 @@ Output:
 
 ```json
 {
-  day: 14
-  hour: 13​
-  minute: 15
-  month: 3​
-  second: 15
-  tzOffset: -60​
-  year: 2019
+  "day": 14,
+  "hour": 13,​
+  "minute": 15,
+  "month": 3​,
+  "second": 15,
+  "tzOffset": -60​,
+  "year": 2019
 }
 ```
 
