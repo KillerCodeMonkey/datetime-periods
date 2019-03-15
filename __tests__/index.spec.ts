@@ -101,7 +101,7 @@ describe('index.ts', () => {
           days: Array.from({ length: 31 }, (_v, i: number) => i + 1),
           hours: Array.from({ length: 24 }, (_v, i: number) => i),
           minutes: Array.from({ length: 60 }, (_v, i: number) => i),
-          seconds: Array.from({ length: 60 }, (_v, i: number) => i),
+          seconds: Array.from({ length: 60 }, (_v, i: number) => i)
         }
       })
     })
@@ -152,7 +152,7 @@ describe('index.ts', () => {
           days: Array.from({ length: 18 }, (_v, i: number) => i + 1),
           hours: Array.from({ length: 13 }, (_v, i: number) => i),
           minutes: Array.from({ length: 31 }, (_v, i: number) => i),
-          seconds: Array.from({ length: 46 }, (_v, i: number) => i),
+          seconds: Array.from({ length: 46 }, (_v, i: number) => i)
         }
       })
     })
@@ -203,7 +203,7 @@ describe('index.ts', () => {
           days: Array.from({ length: 14 }, (_v, i: number) => i + 18),
           hours: Array.from({ length: 12 }, (_v, i: number) => i + 12),
           minutes: Array.from({ length: 30 }, (_v, i: number) => i + 30),
-          seconds: Array.from({ length: 15 }, (_v, i: number) => i + 45),
+          seconds: Array.from({ length: 15 }, (_v, i: number) => i + 45)
         }
       })
     })
@@ -256,7 +256,7 @@ describe('index.ts', () => {
           days: [18],
           hours: [11, 12, 13, 14],
           minutes: Array.from({ length: 60 }, (_v, i: number) => i),
-          seconds: Array.from({ length: 60 }, (_v, i: number) => i),
+          seconds: Array.from({ length: 60 }, (_v, i: number) => i)
         }
       })
     })
@@ -309,7 +309,7 @@ describe('index.ts', () => {
           days: Array.from({ length: 31 }, (_v, i: number) => i + 1),
           hours: Array.from({ length: 24 }, (_v, i: number) => i),
           minutes: Array.from({ length: 60 }, (_v, i: number) => i),
-          seconds: Array.from({ length: 60 }, (_v, i: number) => i),
+          seconds: Array.from({ length: 60 }, (_v, i: number) => i)
         }
       })
     })
@@ -362,7 +362,7 @@ describe('index.ts', () => {
           days: [30, 31],
           hours: Array.from({ length: 12 }, (_v, i: number) => i + 12),
           minutes: Array.from({ length: 30 }, (_v, i: number) => i + 30),
-          seconds: [59],
+          seconds: [59]
         }
       })
     })
@@ -415,7 +415,211 @@ describe('index.ts', () => {
           days: Array.from({ length: 30 }, (_v, i: number) => i + 1),
           hours: Array.from({ length: 13 }, (_v, i: number) => i),
           minutes: Array.from({ length: 31 }, (_v, i: number) => i),
-          seconds: Array.from({ length: 60 }, (_v, i: number) => i),
+          seconds: Array.from({ length: 60 }, (_v, i: number) => i)
+        }
+      })
+    })
+
+    it('returns correct current neededPeriods - no days and seconds', () => {
+      const currentDate = new Date(2019, 11, 30, 12, 30, 59, 0)
+      expect(getDateTimePeriods(currentDate, undefined, undefined, { days: false, seconds: false })).toEqual({
+        value: {
+          year: 2019,
+          month: 12,
+          day: 30,
+          hour: 12,
+          minute: 30,
+          second: 59,
+          tzOffset: currentDate.getTimezoneOffset()
+        },
+        originalValue: {
+          year: 2019,
+          month: 12,
+          day: 30,
+          hour: 12,
+          minute: 30,
+          second: 59,
+          tzOffset: currentDate.getTimezoneOffset()
+        },
+        originalValueChanged: false,
+        max: {
+          year: 2119,
+          month: 12,
+          day: 30,
+          hour: 12,
+          minute: 30,
+          second: 59,
+          tzOffset: currentDate.getTimezoneOffset()
+        },
+        min: {
+          year: 1919,
+          month: 12,
+          day: 30,
+          hour: 12,
+          minute: 30,
+          second: 59,
+          tzOffset: currentDate.getTimezoneOffset()
+        },
+        periods: {
+          years: Array.from({ length: 201 }, (_v, i: number) => 1919 + i),
+          months: Array.from({ length: 12 }, (_v, i: number) => i + 1),
+          days: [],
+          hours: Array.from({ length: 24 }, (_v, i: number) => i),
+          minutes: Array.from({ length: 60 }, (_v, i: number) => i),
+          seconds: []
+        }
+      })
+    })
+
+    it('returns correct current neededPeriods - no years and months', () => {
+      const currentDate = new Date(2019, 11, 30, 12, 30, 59, 0)
+      expect(getDateTimePeriods(currentDate, undefined, undefined, { years: false, months: false })).toEqual({
+        value: {
+          year: 2019,
+          month: 12,
+          day: 30,
+          hour: 12,
+          minute: 30,
+          second: 59,
+          tzOffset: currentDate.getTimezoneOffset()
+        },
+        originalValue: {
+          year: 2019,
+          month: 12,
+          day: 30,
+          hour: 12,
+          minute: 30,
+          second: 59,
+          tzOffset: currentDate.getTimezoneOffset()
+        },
+        originalValueChanged: false,
+        max: {
+          year: 2119,
+          month: 12,
+          day: 30,
+          hour: 12,
+          minute: 30,
+          second: 59,
+          tzOffset: currentDate.getTimezoneOffset()
+        },
+        min: {
+          year: 1919,
+          month: 12,
+          day: 30,
+          hour: 12,
+          minute: 30,
+          second: 59,
+          tzOffset: currentDate.getTimezoneOffset()
+        },
+        periods: {
+          years: [],
+          months: [],
+          days: Array.from({ length: 31 }, (_v, i: number) => i + 1),
+          hours: Array.from({ length: 24 }, (_v, i: number) => i),
+          minutes: Array.from({ length: 60 }, (_v, i: number) => i),
+          seconds: Array.from({ length: 60 }, (_v, i: number) => i)
+        }
+      })
+    })
+
+    it('returns correct current neededPeriods - no minutes and hours', () => {
+      const currentDate = new Date(2019, 11, 30, 12, 30, 59, 0)
+      expect(getDateTimePeriods(currentDate, undefined, undefined, { minutes: false, hours: false })).toEqual({
+        value: {
+          year: 2019,
+          month: 12,
+          day: 30,
+          hour: 12,
+          minute: 30,
+          second: 59,
+          tzOffset: currentDate.getTimezoneOffset()
+        },
+        originalValue: {
+          year: 2019,
+          month: 12,
+          day: 30,
+          hour: 12,
+          minute: 30,
+          second: 59,
+          tzOffset: currentDate.getTimezoneOffset()
+        },
+        originalValueChanged: false,
+        max: {
+          year: 2119,
+          month: 12,
+          day: 30,
+          hour: 12,
+          minute: 30,
+          second: 59,
+          tzOffset: currentDate.getTimezoneOffset()
+        },
+        min: {
+          year: 1919,
+          month: 12,
+          day: 30,
+          hour: 12,
+          minute: 30,
+          second: 59,
+          tzOffset: currentDate.getTimezoneOffset()
+        },
+        periods: {
+          years: Array.from({ length: 201 }, (_v, i: number) => 1919 + i),
+          months: Array.from({ length: 12 }, (_v, i: number) => i + 1),
+          days: Array.from({ length: 31 }, (_v, i: number) => i + 1),
+          hours: [],
+          minutes: [],
+          seconds: Array.from({ length: 60 }, (_v, i: number) => i)
+        }
+      })
+    })
+
+    it('returns correct current neededPeriods - nothing :)', () => {
+      const currentDate = new Date(2019, 11, 30, 12, 30, 59, 0)
+      expect(getDateTimePeriods(currentDate, undefined, undefined, { years: false, months: false, days: false, hours: false, minutes: false, seconds: false })).toEqual({
+        value: {
+          year: 2019,
+          month: 12,
+          day: 30,
+          hour: 12,
+          minute: 30,
+          second: 59,
+          tzOffset: currentDate.getTimezoneOffset()
+        },
+        originalValue: {
+          year: 2019,
+          month: 12,
+          day: 30,
+          hour: 12,
+          minute: 30,
+          second: 59,
+          tzOffset: currentDate.getTimezoneOffset()
+        },
+        originalValueChanged: false,
+        max: {
+          year: 2119,
+          month: 12,
+          day: 30,
+          hour: 12,
+          minute: 30,
+          second: 59,
+          tzOffset: currentDate.getTimezoneOffset()
+        },
+        min: {
+          year: 1919,
+          month: 12,
+          day: 30,
+          hour: 12,
+          minute: 30,
+          second: 59,
+          tzOffset: currentDate.getTimezoneOffset()
+        },
+        periods: {
+          years: [],
+          months: [],
+          days: [],
+          hours: [],
+          minutes: [],
+          seconds: []
         }
       })
     })

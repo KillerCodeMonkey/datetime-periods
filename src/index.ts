@@ -19,7 +19,7 @@ export interface DateTimeObject {
   tzOffset: number
 }
 
-export interface GetValidDatesResult {
+export interface GetDateTimePeriods {
   value: DateTimeObject
   originalValue: DateTimeObject
   originalValueChanged: boolean
@@ -33,6 +33,24 @@ export interface GetValidDatesResult {
     seconds: number[]
     years: number[]
   }
+}
+
+export interface NeededPeriods {
+  days?: boolean
+  hours?: boolean
+  minutes?: boolean
+  months?: boolean
+  seconds?: boolean
+  years?: boolean
+}
+
+export const defaultNeededPeriods = {
+  days: true,
+  hours: true,
+  minutes: true,
+  months: true,
+  seconds: true,
+  years: true
 }
 
 /**
@@ -59,9 +77,11 @@ export function getDateTimeObject(date: Date): DateTimeObject {
    * @param value - A javascript date
    * @param min - The optional min date
    * @param max - The optional max date
+   * @param needed - The optional needed object where it is possible to define the needed periods
    * @returns The date params as object representation and the valid periods
    */
-export function getDateTimePeriods(value: Date = new Date(), min?: Date, max?: Date): GetValidDatesResult {
+export function getDateTimePeriods(value: Date = new Date(), min?: Date, max?: Date, needed: NeededPeriods = defaultNeededPeriods): GetDateTimePeriods {
+  needed = Object.assign({}, defaultNeededPeriods, needed)
   value = new Date(value.setMilliseconds(0))
   const valueOriginal = new Date(value)
   let valueChanged = false
@@ -101,11 +121,11 @@ export function getDateTimePeriods(value: Date = new Date(), min?: Date, max?: D
   const maxDateObject = getDateTimeObject(max)
   const currentDateObject = getDateTimeObject(value)
 
-  let days = Array.from({ length: getDaysInMonth(currentDateObject.month, currentDateObject.year) }, (_v, i: number) => i + 1)
-  let months = Array.from({ length: 12 }, ( _v, i: number) => i + 1)
-  let hours = Array.from({ length: 24 }, ( _v, i: number) => i)
-  let minutes = Array.from({ length: 60 }, ( _v, i: number) => i)
-  let seconds = Array.from({ length: 60 }, ( _v, i: number) => i)
+  let days = needed.days ? Array.from({ length: getDaysInMonth(currentDateObject.month, currentDateObject.year) }, (_v, i: number) => i + 1) : []
+  let months = needed.months ? Array.from({ length: 12 }, ( _v, i: number) => i + 1) : []
+  let hours = needed.hours ? Array.from({ length: 24 }, ( _v, i: number) => i) : []
+  let minutes = needed.minutes ? Array.from({ length: 60 }, ( _v, i: number) => i) : []
+  let seconds = needed.seconds ? Array.from({ length: 60 }, ( _v, i: number) => i) : []
 
   // filter months and days and minutes and seconds
   if (currentDateObject.year === minDateObject.year) {
@@ -148,7 +168,7 @@ export function getDateTimePeriods(value: Date = new Date(), min?: Date, max?: D
   }
 
   // filter years
-  const years = Array.from({ length: maxDateObject.year - minDateObject.year + 1 }, (_v, i: number) => minDateObject.year + i)
+  const years = needed.years ? Array.from({ length: maxDateObject.year - minDateObject.year + 1 }, (_v, i: number) => minDateObject.year + i) : []
 
   return {
     value: currentDateObject,

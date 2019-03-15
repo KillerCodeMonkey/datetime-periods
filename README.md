@@ -139,11 +139,20 @@ Output:
 28
 ```
 
-### getDateTimePeriods(value: Date, min: Date (optional), max: Date (optional))
+### getDateTimePeriods(value: Date, min: Date (optional), max: Date (optional), needed: NeededPeriods (optional))
 
 This method contains the main functionality of the lib. The other methods are only internally used, but maybe someone finds them useful :).
 
 It generates a data structure of valid years, months, days, hours, minutes and seconds for a given date and an optional min and max date. In addition to that it returns all the calculation dates as object representation.
+
+If only some period values are interesting, it is possible to only retrieve, years, months, ... . Therefore use the `needed` parameter and pass an object of the values you do not need. This periods keys will be an empty array.
+
+```typescript
+getDateTimePeriods(new Date(), undefined, undefined, {
+  days: false
+  years: false
+})
+```
 
 **Result value**
 ```typescript
