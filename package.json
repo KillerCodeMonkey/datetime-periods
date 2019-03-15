@@ -22,7 +22,15 @@
     "datetime",
     "valid",
     "generate",
-    "periods"
+    "periods",
+    "javascript",
+    "browser",
+    "validation",
+    "generator",
+    "picker",
+    "nodejs",
+    "node",
+    "range"
   ],
   "engines": {
     "node": ">= 8"
