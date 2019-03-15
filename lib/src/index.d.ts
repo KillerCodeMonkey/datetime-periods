@@ -15,7 +15,7 @@ export interface DateTimeObject {
     second: number;
     tzOffset: number;
 }
-export interface GetValidDatesResult {
+export interface GetDateTimePeriods {
     value: DateTimeObject;
     originalValue: DateTimeObject;
     originalValueChanged: boolean;
@@ -30,6 +30,22 @@ export interface GetValidDatesResult {
         years: number[];
     };
 }
+export interface NeededPeriods {
+    days?: boolean;
+    hours?: boolean;
+    minutes?: boolean;
+    months?: boolean;
+    seconds?: boolean;
+    years?: boolean;
+}
+export declare const defaultNeededPeriods: {
+    days: boolean;
+    hours: boolean;
+    minutes: boolean;
+    months: boolean;
+    seconds: boolean;
+    years: boolean;
+};
 /**
    * Returns a date object based on a JS date.
    *
@@ -43,6 +59,7 @@ export declare function getDateTimeObject(date: Date): DateTimeObject;
    * @param value - A javascript date
    * @param min - The optional min date
    * @param max - The optional max date
+   * @param needed - The optional needed object where it is possible to define the needed periods
    * @returns The date params as object representation and the valid periods
    */
-export declare function getDateTimePeriods(value?: Date, min?: Date, max?: Date): GetValidDatesResult;
+export declare function getDateTimePeriods(value?: Date, min?: Date, max?: Date, needed?: NeededPeriods): GetDateTimePeriods;
