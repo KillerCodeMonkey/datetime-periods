@@ -121,46 +121,46 @@ export function getDateTimePeriods(value: Date = new Date(), min?: Date, max?: D
   const maxDateObject = getDateTimeObject(max)
   const currentDateObject = getDateTimeObject(value)
 
-  let days = needed.days ? Array.from({ length: getDaysInMonth(currentDateObject.month, currentDateObject.year) }, (_v, i: number) => i + 1) : []
-  let months = needed.months ? Array.from({ length: 12 }, ( _v, i: number) => i + 1) : []
-  let hours = needed.hours ? Array.from({ length: 24 }, ( _v, i: number) => i) : []
-  let minutes = needed.minutes ? Array.from({ length: 60 }, ( _v, i: number) => i) : []
-  let seconds = needed.seconds ? Array.from({ length: 60 }, ( _v, i: number) => i) : []
+  let days = needed.days ? Array.from({ length: getDaysInMonth(currentDateObject.month, currentDateObject.year) }, (_v, i: number): number => i + 1) : []
+  let months = needed.months ? Array.from({ length: 12 }, ( _v, i: number): number => i + 1) : []
+  let hours = needed.hours ? Array.from({ length: 24 }, ( _v, i: number): number => i) : []
+  let minutes = needed.minutes ? Array.from({ length: 60 }, ( _v, i: number): number => i) : []
+  let seconds = needed.seconds ? Array.from({ length: 60 }, ( _v, i: number): number => i) : []
 
   // filter months and days and minutes and seconds
   if (currentDateObject.year === minDateObject.year) {
-    months = months.filter((month: number) => month >= minDateObject.month)
+    months = months.filter((month: number): boolean => month >= minDateObject.month)
 
     if (currentDateObject.month === minDateObject.month) {
-      days = days.filter((day: number) => day >= minDateObject.day)
+      days = days.filter((day: number): boolean => day >= minDateObject.day)
 
       if (currentDateObject.day === minDateObject.day) {
-        hours = hours.filter((hour: number) => hour >= minDateObject.hour)
+        hours = hours.filter((hour: number): boolean => hour >= minDateObject.hour)
 
         if (currentDateObject.hour === minDateObject.hour) {
-          minutes = minutes.filter((minute: number) => minute >= minDateObject.minute)
+          minutes = minutes.filter((minute: number): boolean => minute >= minDateObject.minute)
 
           if (currentDateObject.minute === minDateObject.minute) {
-            seconds = seconds.filter((second: number) => second >= minDateObject.second)
+            seconds = seconds.filter((second: number): boolean => second >= minDateObject.second)
           }
         }
       }
     }
   }
   if (currentDateObject.year === maxDateObject.year) {
-    months = months.filter((month: number) => month <= maxDateObject.month)
+    months = months.filter((month: number): boolean => month <= maxDateObject.month)
 
     if (currentDateObject.month === maxDateObject.month) {
-      days = days.filter((day: number) => day <= maxDateObject.day)
+      days = days.filter((day: number): boolean => day <= maxDateObject.day)
 
       if (currentDateObject.day === maxDateObject.day) {
-        hours = hours.filter((hour: number) => hour <= maxDateObject.hour)
+        hours = hours.filter((hour: number): boolean => hour <= maxDateObject.hour)
 
         if (currentDateObject.hour === maxDateObject.hour) {
-          minutes = minutes.filter((minute: number) => minute <= maxDateObject.minute)
+          minutes = minutes.filter((minute: number): boolean => minute <= maxDateObject.minute)
 
           if (currentDateObject.minute === maxDateObject.minute) {
-            seconds = seconds.filter((second: number) => second <= maxDateObject.second)
+            seconds = seconds.filter((second: number): boolean => second <= maxDateObject.second)
           }
         }
       }
@@ -168,7 +168,7 @@ export function getDateTimePeriods(value: Date = new Date(), min?: Date, max?: D
   }
 
   // filter years
-  const years = needed.years ? Array.from({ length: maxDateObject.year - minDateObject.year + 1 }, (_v, i: number) => minDateObject.year + i) : []
+  const years = needed.years ? Array.from({ length: maxDateObject.year - minDateObject.year + 1 }, (_v, i: number): number => minDateObject.year + i) : []
 
   return {
     value: currentDateObject,
