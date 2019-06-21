@@ -5,7 +5,7 @@
    * @param year - The full year number
    * @returns The days in a month as number
    */
-export function getDaysInMonth(month: number, year: number): number {
+export const getDaysInMonth = (month: number, year: number): number => {
   return new Date(new Date(`${month < 12 ? year : year + 1}-${month < 12 ? month + 1 : 1}-1`).setDate(0)).getDate()
 }
 
@@ -59,15 +59,15 @@ export const defaultNeededPeriods = {
    * @param date - A javascript date
    * @returns The date as a plain old javascript object representation
    */
-export function getDateTimeObject(date: Date): DateTimeObject {
+export const getDateTimeObject = (date: Date): DateTimeObject => {
   return {
-    year: date.getFullYear(),
-    month: date.getMonth() + 1,
     day: date.getDate(),
     hour: date.getHours(),
     minute: date.getMinutes(),
+    month: date.getMonth() + 1,
     second: date.getSeconds(),
-    tzOffset: date.getTimezoneOffset()
+    tzOffset: date.getTimezoneOffset(),
+    year: date.getFullYear()
   }
 }
 
@@ -80,7 +80,7 @@ export function getDateTimeObject(date: Date): DateTimeObject {
    * @param needed - The optional needed object where it is possible to define the needed periods
    * @returns The date params as object representation and the valid periods
    */
-export function getDateTimePeriods(value: Date = new Date(), min?: Date, max?: Date, needed: NeededPeriods = defaultNeededPeriods): GetDateTimePeriods {
+export const getDateTimePeriods = (value: Date = new Date(), min?: Date, max?: Date, needed: NeededPeriods = defaultNeededPeriods): GetDateTimePeriods => {
   needed = Object.assign({}, defaultNeededPeriods, needed)
   value = new Date(value.setMilliseconds(0))
   const valueOriginal = new Date(value)
@@ -171,11 +171,10 @@ export function getDateTimePeriods(value: Date = new Date(), min?: Date, max?: D
   const years = needed.years ? Array.from({ length: maxDateObject.year - minDateObject.year + 1 }, (_v, i: number): number => minDateObject.year + i) : []
 
   return {
-    value: currentDateObject,
-    originalValue: getDateTimeObject(valueOriginal),
-    originalValueChanged: valueChanged,
     max: maxDateObject,
     min: minDateObject,
+    originalValue: getDateTimeObject(valueOriginal),
+    originalValueChanged: valueChanged,
     periods: {
       days,
       hours,
@@ -183,6 +182,7 @@ export function getDateTimePeriods(value: Date = new Date(), min?: Date, max?: D
       months,
       seconds,
       years
-    }
+    },
+    value: currentDateObject,
   }
 }
