@@ -1,6 +1,6 @@
 {
   "name": "datetime-periods",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "Generates a valid list of years down to seconds for a date and min and max date",
   "scripts": {
     "test": "jest --coverage && npm run lint",
