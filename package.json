@@ -1,6 +1,6 @@
 {
   "name": "datetime-periods",
-  "version": "1.1.2",
+  "version": "1.2.0",
   "description": "Generates a valid list of years down to seconds for a date and min and max date",
   "scripts": {
     "test": "jest --coverage && npm run lint",
@@ -43,14 +43,14 @@
   "author": "Bengt Weiße",
   "devDependencies": {
     "@types/jest": "^24.0.15",
-    "@typescript-eslint/eslint-plugin": "^1.10.2",
-    "@typescript-eslint/parser": "^1.10.2",
+    "@typescript-eslint/eslint-plugin": "^2.2.0",
+    "@typescript-eslint/parser": "^2.2.0",
     "acorn": "^6.1.1",
-    "eslint": "^5.16.0",
-    "jest": "^24.8.0",
+    "eslint": "^6.3.0",
+    "jest": "^24.9.0",
     "microbundle": "^0.11.0",
     "rollup": "<1",
     "ts-jest": "^24.0.2",
-    "typescript": "^3.5.2"
+    "typescript": "^3.6.3"
   }
 }
