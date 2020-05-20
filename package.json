@@ -42,7 +42,7 @@
   "types": "lib/src/index.d.ts",
   "author": "Bengt Weiße",
   "devDependencies": {
-    "@types/jest": "^25.2.2",
+    "@types/jest": "^25.2.3",
     "@typescript-eslint/eslint-plugin": "^2.34.0",
     "@typescript-eslint/parser": "^2.34.0",
     "acorn": "^6.1.1",
