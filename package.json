@@ -51,6 +51,6 @@
     "microbundle": "^0.11.0",
     "rollup": "<1",
     "ts-jest": "^25.5.1",
-    "typescript": "^3.9.2"
+    "typescript": "^3.9.3"
   }
 }
