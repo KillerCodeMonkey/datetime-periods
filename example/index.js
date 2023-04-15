@@ -1,3 +1,3 @@
-const dateTimePeriods = require('../lib/datetime-periods')
+import { getDateTimeObject } from '../lib/datetime-periods'
 
-console.log(dateTimePeriods.getDateTimeObject(new Date()))
+console.log(getDateTimeObject(new Date()))

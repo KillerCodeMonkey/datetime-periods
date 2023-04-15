@@ -14,21 +14,21 @@
       console.log('Days of february 2019 (getDaysInMonth):', daysOfFebruary2019)
 
       // example of getDateTimePeriods
-      const value = new Date()
-      const min = new Date()
+      let value = new Date()
+      let min = new Date()
       min.setFullYear(value.getFullYear() - 5)
-      const max = new Date(value.getFullYear() + 5)
+      let max = new Date(value.getFullYear() + 5)
       max.setFullYear(value.getFullYear() + 5)
-      const result = datetimePeriods.getDateTimePeriods(value, min, max)
+      let result = datetimePeriods.getDateTimePeriods(value, min, max)
       console.log('Periods and date objects (getDateTimePeriods):', result)
 
       // example of getDateTimePeriods with needed
-      const value = new Date()
-      const min = new Date()
+      value = new Date()
+      min = new Date()
       min.setFullYear(value.getFullYear() - 5)
-      const max = new Date(value.getFullYear() + 5)
+      max = new Date(value.getFullYear() + 5)
       max.setFullYear(value.getFullYear() + 5)
-      const result = datetimePeriods.getDateTimePeriods(value, min, max, {
+      result = datetimePeriods.getDateTimePeriods(value, min, max, {
         months: false,
         days: false,
         hours: false,
