@@ -1,18 +1,5 @@
 {
   "extends": ["plugin:@typescript-eslint/recommended"],
   "parser": "@typescript-eslint/parser",
-  "plugins": ["@typescript-eslint"],
-  "rules": {
-    "@typescript-eslint/indent": ["error", 2],
-    "@typescript-eslint/member-delimiter-style": ["error", {
-      "multiline": {
-        "delimiter": "none",
-        "requireLast": false
-      },
-      "singleline": {
-          "delimiter": "semi",
-          "requireLast": false
-      }
-    }]
-  }
+  "plugins": ["@typescript-eslint"]
 }
