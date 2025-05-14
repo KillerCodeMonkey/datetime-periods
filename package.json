@@ -43,7 +43,7 @@
   "author": "Bengt Weiße",
   "devDependencies": {
     "@types/jest": "^29.5.14",
-    "@typescript-eslint/eslint-plugin": "^8.25.0",
+    "@typescript-eslint/eslint-plugin": "^8.32.1",
     "@typescript-eslint/parser": "^8.25.0",
     "acorn": "^8.14.1",
     "eslint": "^8.45.0",
