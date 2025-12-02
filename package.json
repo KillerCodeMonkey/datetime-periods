@@ -45,7 +45,7 @@
   "types": "lib/src/index.d.ts",
   "author": "Bengt Weiße",
   "devDependencies": {
-    "@eslint/eslintrc": "^3.3.1",
+    "@eslint/eslintrc": "^3.3.3",
     "@eslint/js": "^9.27.0",
     "@types/jest": "^29.5.14",
     "@typescript-eslint/eslint-plugin": "^8.33.0",
