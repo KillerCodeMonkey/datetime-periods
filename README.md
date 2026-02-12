@@ -22,17 +22,14 @@ PayPal: [PayPal.Me/bengtler](https://paypal.me/bengtler)
 
 ## Usage
 
-### Script tag
-
-If you want to use datetime-periods via script tag, you should use the `datetime-periods.umd.js`. After the script is loaded you can access the methods through the global `datetimePeriods`.
+### Browser
 
 ```html
 <html>
   <head>
-    <script src="../lib/datetime-periods.umd.js"></script>
-    <script>
-      // functions are stored globally on the window object
-      console.log('window.datetimePeriods:', window.datetimePeriods)
+    <script type="module" defer>
+      import * as datetimePeriods  from '../lib/datetime-periods.js'
+      console.log('datetimePeriods:', datetimePeriods)
     </script>
   </head>
   <body>
@@ -64,8 +61,6 @@ const dateTimePeriods = require('datetime-periods')
 Some simple and easy to use examples can be found in the `example` folder in the repo.
 
 There is also a plain JavaScript [example page](https://killercodemonkey.github.io/datetime-periods/example).
-
-Or use [RunKit](https://npm.runkit.com/datetime-periods) to try it out!
 
 ## Methods
 

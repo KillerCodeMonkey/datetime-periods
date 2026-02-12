@@ -1,0 +1,8 @@
+{
+  "compilerOptions": {
+    "outDir": "./lib",
+    "lib": ["ES2015", "DOM"],
+    "esModuleInterop": true,
+    "target": "es2022"
+  }
+}

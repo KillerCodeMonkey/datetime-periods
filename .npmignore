@@ -1,0 +1,12 @@
+__tests__/
+.github/
+example/
+src/
+.codacy.yml
+.parcel-cache
+.gitignore
+.parcelrc
+eslint.config.mjs
+jest.config.js
+package-lock.json
+tsconfig.json

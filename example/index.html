@@ -1,7 +1,9 @@
 <html>
   <head>
-    <script src="../lib/datetime-periods.umd.js"></script>
-    <script>
+    <script type="module" defer>
+      import * as datetimePeriods  from '../lib/datetime-periods.js'
+      
+      window.datetimePeriods = datetimePeriods
       // functions are stored globally on the window object
       console.log('window.datetimePeriods:', window.datetimePeriods)
 

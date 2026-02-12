@@ -4,3 +4,4 @@ coverage
 .dev-build
 dev-build
 .rts*
+.parcel-cache
