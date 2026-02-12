@@ -83,7 +83,7 @@ export const getDateTimeObject = (date: Date): DateTimeObject => {
 export const getDateTimePeriods = (value: Date = new Date(), min?: Date, max?: Date, needed: NeededPeriods = defaultNeededPeriods): GetDateTimePeriods => {
   needed = Object.assign({}, defaultNeededPeriods, needed)
   value = new Date(value.setMilliseconds(0))
-  const valueOriginal = new Date(value)
+  const valueOriginal = new Date(value.getTime())
   let valueChanged = false
   const defaultMin = new Date(new Date(value).setFullYear(value.getFullYear() - 100))
   const defaultMax = new Date(new Date(value).setFullYear(value.getFullYear() + 100))

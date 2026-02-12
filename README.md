@@ -22,17 +22,14 @@ PayPal: [PayPal.Me/bengtler](https://paypal.me/bengtler)
 
 ## Usage
 
-### Script tag
-
-If you want to use datetime-periods via script tag, you should use the `datetime-periods.umd.js`. After the script is loaded you can access the methods through the global `datetimePeriods`.
+### Browser
 
 ```html
 <html>
   <head>
-    <script src="../lib/datetime-periods.umd.js"></script>
-    <script>
-      // functions are stored globally on the window object
-      console.log('window.datetimePeriods:', window.datetimePeriods)
+    <script type="module" defer>
+      import * as datetimePeriods  from '../lib/datetime-periods.js'
+      console.log('datetimePeriods:', datetimePeriods)
     </script>
   </head>
   <body>
