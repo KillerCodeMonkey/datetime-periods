@@ -44,7 +44,7 @@
   "types": "lib/src/index.d.ts",
   "author": "Bengt Weiße",
   "devDependencies": {
-    "@eslint/eslintrc": "^3.3.3",
+    "@eslint/eslintrc": "^3.3.6",
     "@eslint/js": "^9.27.0",
     "@parcel/bundler-library": "^2.16.4",
     "@parcel/packager-ts": "^2.16.4",
